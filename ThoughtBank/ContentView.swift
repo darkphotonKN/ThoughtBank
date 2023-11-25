@@ -8,12 +8,17 @@
 import SwiftUI
 
 struct ContentView: View {
+    
     var body: some View {
+        // Primary Wrapper
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            // Main Title Area
+            MainTitleView()
+            
+            // Thoughts List
+            ThoughtsListView()
+            
+            Spacer()
         }
         .padding()
     }
