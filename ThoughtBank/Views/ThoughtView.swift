@@ -21,6 +21,6 @@ struct ThoughtView: View {
 }
 
 #Preview {
-    ContentView()
+    HomeView()
 }
 

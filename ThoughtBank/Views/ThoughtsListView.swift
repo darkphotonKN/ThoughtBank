@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct ThoughtsListView: View {
+    // initialization for fetching data
+    @StateObject var thoughtsListViewModel = ThoughtsListViewModel()
+    
     private let thoughtList = [
         Thought(
             id: 1, 
@@ -27,6 +30,7 @@ struct ThoughtsListView: View {
     ]
     
     var body: some View {
+       
         HStack {
             VStack(alignment: .leading) {
                 ForEach(thoughtList) { thought in
@@ -37,20 +41,9 @@ struct ThoughtsListView: View {
         }
     }
     
-    func fetchThoughts() {
-        guard let urlObject = URL(string: "http://localhost:8080/api/thoughts")
-            else { return }
-        
-        URLSession.shared.dataTask(with: urlObject) { data, response, error in
-            if let data = data {
-                print(data)
-            }
-            
-        }
-        
-    }
+    
 }
 
 #Preview {
-    ContentView()
+    HomeView()
 }
