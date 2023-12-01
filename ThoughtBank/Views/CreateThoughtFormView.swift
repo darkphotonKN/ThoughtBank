@@ -10,6 +10,7 @@ import SwiftUI
 struct CreateThoughtFormView: View {
     @State var thoughtTitle = ""
     @State var thoughtBody = ""
+    
     var body: some View {
         VStack {
             // Title
@@ -44,7 +45,25 @@ struct CreateThoughtFormView: View {
                 .frame(height: 123)
                 .foregroundColor(.white)
                 .padding(.horizontal, 14)
+            }
+            
+            HStack{
+                Spacer()
+               
+                    
+                Button(action: {} ) {
+                    Text("...Make Thought")
                 }
+                    .background(.white)
+                    .foregroundColor(.gray)
+                    .cornerRadius(8)
+                Image(systemName: "pencil.line")
+                    .foregroundStyle(.gray)
+                    
+               
+            }.padding(.top, 12)
+            
+            
             Spacer()
         }.padding(.top, 22)
     }

@@ -35,6 +35,7 @@ struct ThoughtsListView: View {
             VStack(alignment: .leading) {
                 ForEach(thoughtList) { thought in
                     ThoughtView(thought: thought)
+                    
                 }
             }
             Spacer()

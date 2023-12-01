@@ -8,18 +8,20 @@
 import SwiftUI
 
 struct MainTitleView: View {
-   var mainTitle: String = "ThoughtBank"
+   var mainTitle: String = "Thoughts"
     @Binding var showCreateThought: Bool
     
     var body: some View {
         HStack {
             Text(mainTitle)
                 .font(.system(size: 28, weight: .medium))
-            Image(systemName: "pencil.line")
+                .foregroundStyle(Color(.systemGray))
+            Image(systemName: "brain.head.profile.fill")
                 .resizable()
-                .frame(width: 12, height: 12)
-                .padding(.top, 8)
-                .padding(.leading, -8)
+                .frame(width: 16, height: 18)
+                .padding(.top, 4)
+                .padding(.leading, -4)
+                .foregroundStyle(.gray)
 
             
             Spacer()
@@ -27,11 +29,12 @@ struct MainTitleView: View {
                 showCreateThought.toggle()
             }) {
                 Text(showCreateThought ? "Back" : "Add Thought")
-                    .foregroundStyle(.black)
+                    .foregroundStyle(.gray)
                 
                 Image(systemName: showCreateThought ? "arrowshape.turn.up.backward.fill" : "plus")
-                        .foregroundStyle(.black)
+                        .foregroundStyle(.gray)
                         .padding(.leading, -6)
+                
                 
             }.padding(.top, 4)
         }
