@@ -7,6 +7,9 @@
 
 import Foundation
 
+struct ThoughtDataApiRepsonse: Codable {
+    var data: [Thought]
+}
 
 final class ThoughtsListViewModel: ObservableObject {
     
@@ -19,21 +22,33 @@ final class ThoughtsListViewModel: ObservableObject {
     }
     
     func fetchThoughts() {
-        guard let urlObject = URL(string: "http://172.20.10.4/api/thoughts")
+        guard let urlObject = URL(string: "http://172.20.10.4:3000/api/thoughts")
             else {
                 print("urlObject creation failed!")
                 return
             }
         
-        print("urlObject successfully created: \(urlObject)")
         URLSession.shared.dataTask(with: urlObject) { data, response, error in
-            print("data:", data)
-            print("error: \(error)")
-            if let data = data {
-                print(data)
-            }
+            if let error = error {
+                        print("Error fetching thoughts: \(error)")
+                        return
+                    }
             
-        }
+            guard let data = data else { return }
+            
+            // Attempt to decode the data
+            DispatchQueue.main.async {
+                do {
+                    // convert data to JSON object
+                    let decodedData = try JSONDecoder().decode(ThoughtDataApiRepsonse.self, from: data)
+                    self.thoughtsList = decodedData.data
+                } catch {
+                    print("Error decoding thoughts: \(error)")
+                }
+            }
+               
+            
+        }.resume()
         
     }
     

@@ -9,7 +9,7 @@ import Foundation
 
 
 struct Thought: Identifiable, Codable {
-    var id: Int
+    var id = UUID()
     var title: String
     var content: String
 }

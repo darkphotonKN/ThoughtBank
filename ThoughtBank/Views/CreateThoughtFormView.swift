@@ -11,6 +11,12 @@ struct CreateThoughtFormView: View {
     @State var thoughtTitle = ""
     @State var thoughtBody = ""
     
+    func createThought() {
+        var newThought = Thought(title: thoughtTitle, content: thoughtBody)
+        
+        // post to backend
+    }
+    
     var body: some View {
         VStack {
             // Title
@@ -51,7 +57,7 @@ struct CreateThoughtFormView: View {
                 Spacer()
                
                     
-                Button(action: {} ) {
+                Button(action: { createThought() } ) {
                     Text("...Make Thought")
                 }
                     .background(.white)

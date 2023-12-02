@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct HomeView: View {
+    @State var thoughts: [Thought] = [Thought]()
     @State var showCreateThought: Bool = false
     
     var body: some View {
@@ -23,9 +24,11 @@ struct HomeView: View {
                 if(showCreateThought) {
                     // Create Thought Form
                     CreateThoughtFormView()
+                    
                 } else {
                     // Thoughts List
                     ThoughtsListView()
+                    
                 }
                 
                 

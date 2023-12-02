@@ -26,7 +26,9 @@ struct MainTitleView: View {
             
             Spacer()
             Button(action: {
-                showCreateThought.toggle()
+                withAnimation(.easeIn(duration: 0.3)) {
+                    showCreateThought.toggle()
+                }
             }) {
                 Text(showCreateThought ? "Back" : "Add Thought")
                     .foregroundStyle(.gray)
