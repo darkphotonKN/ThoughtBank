@@ -13,8 +13,18 @@ struct CreateThoughtFormView: View {
     
     func createThought() {
         var newThought = Thought(title: thoughtTitle, content: thoughtBody)
+        let mobileIP = "172.20.10.4"
+        let officeIP = "10.1.6.21"
+        let url = "http://\(officeIP):3000/api/thoughts/create"
         
         // post to backend
+        NetworkManager.shared.postRequest(url: url, payload: newThought) { result in
+            // stop if no result was recieved
+//            guard let result != result { return }
+            
+            print("postResult: \(result)")
+            
+        }
     }
     
     var body: some View {

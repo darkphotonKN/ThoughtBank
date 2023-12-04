@@ -10,6 +10,7 @@ import SwiftUI
 struct HomeView: View {
     @State var thoughts: [Thought] = [Thought]()
     @State var showCreateThought: Bool = false
+    @State var navigation: String = "home"
     
     var body: some View {
         // Primary Wrapper
@@ -21,17 +22,21 @@ struct HomeView: View {
                 
                 // Main Content Area
                 
-                if(showCreateThought) {
-                    // Create Thought Form
-                    CreateThoughtFormView()
-                    
-                } else {
-                    // Thoughts List
-                    ThoughtsListView()
-                    
+                
+                // Thoughts List Screen
+                if(navigation == "thoughtslist") {
+                    if(showCreateThought) {
+                        // Create Thought Form
+                        CreateThoughtFormView()
+                        
+                    } else {
+                        // Thoughts List
+                        ThoughtsListView()
+                        
+                    }
                 }
-                
-                
+                Spacer()
+                MenuView(navigation: $navigation)
             }.padding(20)
            
             

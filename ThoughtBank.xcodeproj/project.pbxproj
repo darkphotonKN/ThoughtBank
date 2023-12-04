@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8F636E872B1DB05000EA3FEF /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F636E862B1DB05000EA3FEF /* NetworkManager.swift */; };
 		8FB6DBDF2B126E6A007C3943 /* ThoughtBankApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB6DBDE2B126E6A007C3943 /* ThoughtBankApp.swift */; };
 		8FB6DBE12B126E6A007C3943 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB6DBE02B126E6A007C3943 /* HomeView.swift */; };
 		8FB6DBE32B126E6B007C3943 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8FB6DBE22B126E6B007C3943 /* Assets.xcassets */; };
@@ -17,9 +18,13 @@
 		8FB6DBF32B128BE9007C3943 /* ThoughtView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB6DBF22B128BE9007C3943 /* ThoughtView.swift */; };
 		8FE8752C2B165C5300FBF31E /* ThoughtsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FE8752B2B165C5300FBF31E /* ThoughtsListViewModel.swift */; };
 		8FE875322B19CEE400FBF31E /* CreateThoughtFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FE875312B19CEE400FBF31E /* CreateThoughtFormView.swift */; };
+		8FE875372B1C61D900FBF31E /* Algorithms in Frameworks */ = {isa = PBXBuildFile; productRef = 8FE875362B1C61D900FBF31E /* Algorithms */; };
+		8FE8755C2B1CF91D00FBF31E /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FE8755B2B1CF91D00FBF31E /* MenuView.swift */; };
+		8FE875602B1DA8B300FBF31E /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FE8755F2B1DA8B300FBF31E /* MenuItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8F636E862B1DB05000EA3FEF /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		8FB6DBDB2B126E6A007C3943 /* ThoughtBank.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ThoughtBank.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FB6DBDE2B126E6A007C3943 /* ThoughtBankApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThoughtBankApp.swift; sourceTree = "<group>"; };
 		8FB6DBE02B126E6A007C3943 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -31,6 +36,8 @@
 		8FB6DBF22B128BE9007C3943 /* ThoughtView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThoughtView.swift; sourceTree = "<group>"; };
 		8FE8752B2B165C5300FBF31E /* ThoughtsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThoughtsListViewModel.swift; sourceTree = "<group>"; };
 		8FE875312B19CEE400FBF31E /* CreateThoughtFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateThoughtFormView.swift; sourceTree = "<group>"; };
+		8FE8755B2B1CF91D00FBF31E /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
+		8FE8755F2B1DA8B300FBF31E /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,12 +45,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8FE875372B1C61D900FBF31E /* Algorithms in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8F636E842B1DAF8500EA3FEF /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				8F636E862B1DB05000EA3FEF /* NetworkManager.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
 		8FB6DBD22B126E6A007C3943 = {
 			isa = PBXGroup;
 			children = (
@@ -63,6 +79,7 @@
 		8FB6DBDD2B126E6A007C3943 /* ThoughtBank */ = {
 			isa = PBXGroup;
 			children = (
+				8F636E842B1DAF8500EA3FEF /* Networking */,
 				8FE8752A2B165BCF00FBF31E /* Views */,
 				8FE875292B165BC700FBF31E /* ViewModel */,
 				8FE875282B165BBC00FBF31E /* Models */,
@@ -100,6 +117,7 @@
 		8FE8752A2B165BCF00FBF31E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				8FE8755D2B1DA89F00FBF31E /* Menu */,
 				8FB6DBEC2B12878F007C3943 /* MainTitleView.swift */,
 				8FB6DBF22B128BE9007C3943 /* ThoughtView.swift */,
 				8FB6DBEE2B128812007C3943 /* ThoughtsListView.swift */,
@@ -107,6 +125,15 @@
 				8FE875312B19CEE400FBF31E /* CreateThoughtFormView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		8FE8755D2B1DA89F00FBF31E /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				8FE8755B2B1CF91D00FBF31E /* MenuView.swift */,
+				8FE8755F2B1DA8B300FBF31E /* MenuItem.swift */,
+			);
+			path = Menu;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,6 +152,9 @@
 			dependencies = (
 			);
 			name = ThoughtBank;
+			packageProductDependencies = (
+				8FE875362B1C61D900FBF31E /* Algorithms */,
+			);
 			productName = ThoughtBank;
 			productReference = 8FB6DBDB2B126E6A007C3943 /* ThoughtBank.app */;
 			productType = "com.apple.product-type.application";
@@ -153,6 +183,9 @@
 				Base,
 			);
 			mainGroup = 8FB6DBD22B126E6A007C3943;
+			packageReferences = (
+				8FE875352B1C61D900FBF31E /* XCRemoteSwiftPackageReference "swift-algorithms" */,
+			);
 			productRefGroup = 8FB6DBDC2B126E6A007C3943 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -183,10 +216,13 @@
 				8FB6DBED2B12878F007C3943 /* MainTitleView.swift in Sources */,
 				8FB6DBF12B1289C4007C3943 /* Thought.swift in Sources */,
 				8FB6DBF32B128BE9007C3943 /* ThoughtView.swift in Sources */,
+				8F636E872B1DB05000EA3FEF /* NetworkManager.swift in Sources */,
+				8FE8755C2B1CF91D00FBF31E /* MenuView.swift in Sources */,
 				8FE875322B19CEE400FBF31E /* CreateThoughtFormView.swift in Sources */,
 				8FB6DBE12B126E6A007C3943 /* HomeView.swift in Sources */,
 				8FB6DBEF2B128812007C3943 /* ThoughtsListView.swift in Sources */,
 				8FB6DBDF2B126E6A007C3943 /* ThoughtBankApp.swift in Sources */,
+				8FE875602B1DA8B300FBF31E /* MenuItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -390,6 +426,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		8FE875352B1C61D900FBF31E /* XCRemoteSwiftPackageReference "swift-algorithms" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-algorithms.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.2.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		8FE875362B1C61D900FBF31E /* Algorithms */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8FE875352B1C61D900FBF31E /* XCRemoteSwiftPackageReference "swift-algorithms" */;
+			productName = Algorithms;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 8FB6DBD32B126E6A007C3943 /* Project object */;
 }

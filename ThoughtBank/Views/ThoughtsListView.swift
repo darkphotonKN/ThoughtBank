@@ -6,29 +6,28 @@
 //
 
 import SwiftUI
+import Algorithms
 
 struct ThoughtsListView: View {
     // initialization for fetching data
     @StateObject var thoughtsListViewModel = ThoughtsListViewModel()
     
     var body: some View {
-       
+        
         HStack {
             VStack(alignment: .leading) {
                 if let thoughtListData = thoughtsListViewModel.thoughtsList {
                     ForEach(thoughtListData) { thought in
                         ThoughtView(thought: thought)
-                        
                     }
                 } else {
                     ProgressView()
                 }
+                Spacer()
             }
-            Spacer()
         }
+        
     }
-    
-    
 }
 
 #Preview {
