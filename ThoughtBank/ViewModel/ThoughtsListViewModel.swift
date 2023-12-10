@@ -24,7 +24,7 @@ final class ThoughtsListViewModel: ObservableObject {
     func fetchThoughts() {
         let mobileIP = "172.20.10.4"
         let officeIP = "10.1.6.21"
-        guard let urlObject = URL(string: "http://\(officeIP):3000/api/thoughts")
+        guard let urlObject = URL(string: "http://\(mobileIP):3000/api/thoughts")
             else {
                 print("urlObject creation failed!")
                 return
@@ -39,13 +39,15 @@ final class ThoughtsListViewModel: ObservableObject {
             
             guard let data = data else { return }
             
+//            print("Raw data string: \(String(data: data, encoding: .utf8) ?? "Invalid data")")
+            
             // Attempt to decode the data
             DispatchQueue.main.async {
                 do {
                     // convert data to JSON object
                     let decodedData = try JSONDecoder().decode(ThoughtDataApiRepsonse.self, from: data)
                     self.thoughtsList = decodedData.data
-                    print("decodedData: \(decodedData)")
+//                    print("decodedData: \(decodedData)")
                 } catch {
                     print("Error decoding thoughts: \(error)")
                 }

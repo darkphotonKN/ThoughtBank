@@ -10,22 +10,7 @@ import SwiftUI
 struct CreateThoughtFormView: View {
     @State var thoughtTitle = ""
     @State var thoughtBody = ""
-    
-    func createThought() {
-        var newThought = Thought(title: thoughtTitle, content: thoughtBody)
-        let mobileIP = "172.20.10.4"
-        let officeIP = "10.1.6.21"
-        let url = "http://\(officeIP):3000/api/thoughts/create"
-        
-        // post to backend
-        NetworkManager.shared.postRequest(url: url, payload: newThought) { result in
-            // stop if no result was recieved
-//            guard let result != result { return }
-            
-            print("postResult: \(result)")
-            
-        }
-    }
+    @Binding var showCreateThought: Bool
     
     var body: some View {
         VStack {
@@ -63,11 +48,17 @@ struct CreateThoughtFormView: View {
                 .padding(.horizontal, 14)
             }
             
+            // Submit Button
             HStack{
                 Spacer()
                
+                Button(action: {
+                    // POST new thought
+                    createThought()
                     
-                Button(action: { createThought() } ) {
+                    // switch back to main view 
+                    showCreateThought = false 
+                } ) {
                     Text("...Make Thought")
                 }
                     .background(.white)
@@ -83,9 +74,33 @@ struct CreateThoughtFormView: View {
             Spacer()
         }.padding(.top, 22)
     }
+    
+    func createThought() {
+        let newThought = Thought(title: thoughtTitle, content: thoughtBody)
+        let mobileIP = "172.20.10.4"
+        let officeIP = "10.1.6.21"
+        let url = "http://\(mobileIP):3000/api/thoughts/create"
+        
+        // post to backend
+        NetworkManager.shared.postRequest(url: url, payload: newThought) { result in
+            // stop if no result was recieved
+            switch result {
+            case .success(let data):
+                // decode JSON with string
+                if let encodedStr = String(data: data, encoding: .utf8) {
+                    print("post repsonse data: \(encodedStr)")
+                }
+                
+            case .failure(let error):
+                print("Error while posting: \(error)")
+                    
+            }
+            
+        }
+    }
 }
 
 #Preview {
 //    HomeView()
-    CreateThoughtFormView()
+    CreateThoughtFormView(showCreateThought: .constant(false))
 }

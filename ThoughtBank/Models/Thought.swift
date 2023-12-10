@@ -10,7 +10,7 @@ import SwiftUI
 
 
 struct Thought: Identifiable, Codable {
-    var id = UUID()
+    var id: String?
     var title: String
     var content: String
 }

@@ -15,16 +15,21 @@ struct ThoughtsListView: View {
     var body: some View {
         
         HStack {
-            VStack(alignment: .leading) {
-                if let thoughtListData = thoughtsListViewModel.thoughtsList {
-                    ForEach(thoughtListData) { thought in
-                        ThoughtView(thought: thought)
+            ScrollView {
+                VStack(alignment: .leading) {
+                    
+                        if let thoughtListData = thoughtsListViewModel.thoughtsList {
+                            ForEach(thoughtListData) { thought in
+                                ThoughtView(thought: thought)
+                            }
+                        } else {
+                            ProgressView()
+                        }
+                    
                     }
-                } else {
-                    ProgressView()
-                }
-                Spacer()
+                    Spacer()
             }
+            Spacer()
         }
         
     }

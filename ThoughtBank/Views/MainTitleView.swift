@@ -12,9 +12,10 @@ struct MainTitleView: View {
     @Binding var showCreateThought: Bool
     
     var body: some View {
+        
         HStack {
             Text(mainTitle)
-                .font(.system(size: 28, weight: .medium))
+                .font(.system(size: 24, weight: .medium))
                 .foregroundStyle(Color(.systemGray))
             Image(systemName: "brain.head.profile.fill")
                 .resizable()

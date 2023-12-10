@@ -21,6 +21,8 @@
 		8FE875372B1C61D900FBF31E /* Algorithms in Frameworks */ = {isa = PBXBuildFile; productRef = 8FE875362B1C61D900FBF31E /* Algorithms */; };
 		8FE8755C2B1CF91D00FBF31E /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FE8755B2B1CF91D00FBF31E /* MenuView.swift */; };
 		8FE875602B1DA8B300FBF31E /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FE8755F2B1DA8B300FBF31E /* MenuItem.swift */; };
+		8FF6175A2B222C4800B349E6 /* enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF617592B222C4800B349E6 /* enum.swift */; };
+		8FF6175C2B25ECEC00B349E6 /* DeleteThoughtView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF6175B2B25ECEC00B349E6 /* DeleteThoughtView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +40,8 @@
 		8FE875312B19CEE400FBF31E /* CreateThoughtFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateThoughtFormView.swift; sourceTree = "<group>"; };
 		8FE8755B2B1CF91D00FBF31E /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		8FE8755F2B1DA8B300FBF31E /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
+		8FF617592B222C4800B349E6 /* enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enum.swift; sourceTree = "<group>"; };
+		8FF6175B2B25ECEC00B349E6 /* DeleteThoughtView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteThoughtView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +83,7 @@
 		8FB6DBDD2B126E6A007C3943 /* ThoughtBank */ = {
 			isa = PBXGroup;
 			children = (
+				8FF617582B222C2B00B349E6 /* types */,
 				8F636E842B1DAF8500EA3FEF /* Networking */,
 				8FE8752A2B165BCF00FBF31E /* Views */,
 				8FE875292B165BC700FBF31E /* ViewModel */,
@@ -123,6 +128,7 @@
 				8FB6DBEE2B128812007C3943 /* ThoughtsListView.swift */,
 				8FB6DBE02B126E6A007C3943 /* HomeView.swift */,
 				8FE875312B19CEE400FBF31E /* CreateThoughtFormView.swift */,
+				8FF6175B2B25ECEC00B349E6 /* DeleteThoughtView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -134,6 +140,14 @@
 				8FE8755F2B1DA8B300FBF31E /* MenuItem.swift */,
 			);
 			path = Menu;
+			sourceTree = "<group>";
+		};
+		8FF617582B222C2B00B349E6 /* types */ = {
+			isa = PBXGroup;
+			children = (
+				8FF617592B222C4800B349E6 /* enum.swift */,
+			);
+			path = types;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -214,6 +228,8 @@
 			files = (
 				8FE8752C2B165C5300FBF31E /* ThoughtsListViewModel.swift in Sources */,
 				8FB6DBED2B12878F007C3943 /* MainTitleView.swift in Sources */,
+				8FF6175C2B25ECEC00B349E6 /* DeleteThoughtView.swift in Sources */,
+				8FF6175A2B222C4800B349E6 /* enum.swift in Sources */,
 				8FB6DBF12B1289C4007C3943 /* Thought.swift in Sources */,
 				8FB6DBF32B128BE9007C3943 /* ThoughtView.swift in Sources */,
 				8F636E872B1DB05000EA3FEF /* NetworkManager.swift in Sources */,
@@ -356,6 +372,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ThoughtBank/Preview Content\"";
+				DEVELOPMENT_TEAM = KYGTS4FW72;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -384,6 +401,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ThoughtBank/Preview Content\"";
+				DEVELOPMENT_TEAM = KYGTS4FW72;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
