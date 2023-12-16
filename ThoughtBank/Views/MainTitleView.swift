@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MainTitleView: View {
-   var mainTitle: String = "Thoughts"
+    var mainTitle: String = "Thoughts"
     @Binding var showCreateThought: Bool
     @Binding var navigation: MenuViews
     

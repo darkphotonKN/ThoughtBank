@@ -13,9 +13,11 @@ struct User {
 }
 
 struct HomeView: View {
-    @State var thoughts: [Thought] = [Thought]()
-    @State var showCreateThought: Bool = false
-    @State var navigation: MenuViews = MenuViews.home
+    @State private var thoughts: [Thought] = [Thought]()
+    @State private var showCreateThought: Bool = false
+    @State private var showDetailThought: Bool = false
+    @State private var detailThought: Thought?
+    @State private var navigation: MenuViews = MenuViews.home
     
     // user
     let testUser = User(name: "Kranti", email: "darkphoton20@gmail.com")
@@ -42,11 +44,14 @@ struct HomeView: View {
                         if(showCreateThought) {
                             // Create Thought Form
                             CreateThoughtFormView(showCreateThought: $showCreateThought)
+                        } else if(showDetailThought){
+                            
+                            // Detail Thought
+                            DetailThoughtView(showDetailThought: $showDetailThought, thought: detailThought)
                             
                         } else {
                             // Thoughts List
-                            ThoughtsListView()
-                            
+                            ThoughtsListView(showDetailThought: $showDetailThought, detailThought: $detailThought)
                         }
                     }
                     

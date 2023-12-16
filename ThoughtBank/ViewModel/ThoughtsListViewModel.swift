@@ -16,7 +16,6 @@ final class ThoughtsListViewModel: ObservableObject {
     @Published var thoughtsList: [Thought]?
     
     init() {
-        print("init!")
         // fetch the intial data
         fetchThoughts()
     }
