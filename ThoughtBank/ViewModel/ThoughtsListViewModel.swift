@@ -39,7 +39,6 @@ final class ThoughtsListViewModel: ObservableObject {
             
             guard let data = data else { return }
             
-//            print("Raw data string: \(String(data: data, encoding: .utf8) ?? "Invalid data")")
             
             // Attempt to decode the data
             DispatchQueue.main.async {
@@ -47,7 +46,6 @@ final class ThoughtsListViewModel: ObservableObject {
                     // convert data to JSON object
                     let decodedData = try JSONDecoder().decode(ThoughtDataApiRepsonse.self, from: data)
                     self.thoughtsList = decodedData.data
-//                    print("decodedData: \(decodedData)")
                 } catch {
                     print("Error decoding thoughts: \(error)")
                 }

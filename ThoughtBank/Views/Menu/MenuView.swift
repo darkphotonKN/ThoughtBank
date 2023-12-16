@@ -10,12 +10,13 @@ import SwiftUI
 
 struct MenuView: View {
     @Binding var navigation: MenuViews
+    @Binding var showCreateThought: Bool
     
     var body: some View {
         HStack(spacing: 12) {
-            MenuItem(navigation: $navigation, navigationDest: MenuViews.home, imageName: "house", title: "Home", link: "home")
-            MenuItem(navigation: $navigation, navigationDest: MenuViews.thoughts, imageName: "brain", title: "My Thoughts", link: "thoughtsList")
-            MenuItem(navigation: $navigation, navigationDest: MenuViews.profile, imageName: "person.crop.circle", title: "Account", link: "account")
+            MenuItem(navigation: $navigation, showCreateThought: $showCreateThought, navigationDest: MenuViews.home, imageName: "house", title: "Home", link: "home")
+            MenuItem(navigation: $navigation, showCreateThought: $showCreateThought, navigationDest: MenuViews.thoughts, imageName: "brain", title: "My Thoughts", link: "thoughtsList")
+            MenuItem(navigation: $navigation, showCreateThought: $showCreateThought, navigationDest: MenuViews.profile, imageName: "person.crop.circle", title: "Account", link: "account")
         }
     }
 }

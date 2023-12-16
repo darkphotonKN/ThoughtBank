@@ -10,6 +10,7 @@ import SwiftUI
 struct MainTitleView: View {
    var mainTitle: String = "Thoughts"
     @Binding var showCreateThought: Bool
+    @Binding var navigation: MenuViews
     
     var body: some View {
         
@@ -28,7 +29,11 @@ struct MainTitleView: View {
             Spacer()
             Button(action: {
                 withAnimation(.easeIn(duration: 0.3)) {
+                    // show the create thought view
                     showCreateThought.toggle()
+                    // change navigation to thought list to be able to
+                    // show the create thought view
+                    navigation = MenuViews.thoughts
                 }
             }) {
                 Text(showCreateThought ? "Back" : "Add Thought")
