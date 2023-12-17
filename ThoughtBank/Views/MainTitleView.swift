@@ -9,8 +9,8 @@ import SwiftUI
 
 struct MainTitleView: View {
     var mainTitle: String = "Thoughts"
-    @Binding var showCreateThought: Bool
-    @Binding var navigation: MenuViews
+    @Binding var detailNavigation: DetailViewsState
+    @Binding var navigation: MenuViewsState
     
     var body: some View {
         
@@ -29,17 +29,24 @@ struct MainTitleView: View {
             Spacer()
             Button(action: {
                 withAnimation(.easeIn(duration: 0.3)) {
-                    // show the create thought view
-                    showCreateThought.toggle()
+                    // check if already inside create thought view
+                    if (detailNavigation == .create) {
+                        // exit out of there
+                        detailNavigation = .list
+                    } else {
+                        // show the create thought view
+                        detailNavigation = .create
+                    }
+                    
                     // change navigation to thought list to be able to
                     // show the create thought view
-                    navigation = MenuViews.thoughts
+                    navigation = MenuViewsState.thoughts
                 }
             }) {
-                Text(showCreateThought ? "Back" : "Add Thought")
+                Text(detailNavigation == .create ? "Back" : "Add Thought")
                     .foregroundStyle(.gray)
                 
-                Image(systemName: showCreateThought ? "arrowshape.turn.up.backward.fill" : "plus")
+                Image(systemName: detailNavigation == .create ? "arrowshape.turn.up.backward.fill" : "plus")
                         .foregroundStyle(.gray)
                         .padding(.leading, -6)
                 

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct DetailThoughtView: View {
-    @Binding var showDetailThought: Bool
+    @Binding var detailNavigation: DetailViewsState
     var thought: Thought?
     
 
@@ -29,7 +29,7 @@ struct DetailThoughtView: View {
                         Spacer()
                             Button(action: {
                                 withAnimation(.easeInOut(duration: 0.3)) {
-                                    showDetailThought = false
+                                    detailNavigation = .list
                                 }
                             }) {
                                 Text("Thoughts")
@@ -50,5 +50,5 @@ struct DetailThoughtView: View {
 }
 
 #Preview {
-    DetailThoughtView(showDetailThought: .constant(true), thought: Thought(id: "1231", title: "A thought!", content: "Some content of a thought..."))
+    DetailThoughtView(detailNavigation: .constant(.detail), thought: Thought(id: "1231", title: "A thought!", content: "Some content of a thought..."))
 }

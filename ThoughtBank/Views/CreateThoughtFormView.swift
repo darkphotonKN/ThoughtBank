@@ -10,7 +10,7 @@ import SwiftUI
 struct CreateThoughtFormView: View {
     @State var thoughtTitle = ""
     @State var thoughtBody = ""
-    @Binding var showCreateThought: Bool
+    @Binding var detailNavigation: DetailViewsState
     
     var body: some View {
         VStack {
@@ -57,7 +57,7 @@ struct CreateThoughtFormView: View {
                     createThought()
                     
                     // switch back to main view 
-                    showCreateThought = false 
+                    detailNavigation = .list
                 } ) {
                     Text("...Make Thought")
                 }
@@ -78,8 +78,9 @@ struct CreateThoughtFormView: View {
     func createThought() {
         let newThought = Thought(title: thoughtTitle, content: thoughtBody)
         let mobileIP = "172.20.10.4"
+        let homeWifiIP = "10.0.0.110"
         let officeIP = "10.1.6.21"
-        let url = "http://\(mobileIP):3000/api/thoughts/create"
+        let url = "http://\(homeWifiIP):3000/api/thoughts/create"
         
         // post to backend
         NetworkManager.shared.postRequest(url: url, payload: newThought) { result in
@@ -102,5 +103,5 @@ struct CreateThoughtFormView: View {
 
 #Preview {
 //    HomeView()
-    CreateThoughtFormView(showCreateThought: .constant(false))
+    CreateThoughtFormView(detailNavigation: .constant(DetailViewsState.create))
 }

@@ -9,10 +9,10 @@ import Foundation
 import SwiftUI
 
 struct MenuItem: View {
-    @Binding var navigation: MenuViews
-    @Binding var showCreateThought: Bool
+    @Binding var navigation: MenuViewsState
+    @Binding var detailNavigation: DetailViewsState
     
-    var navigationDest: MenuViews
+    var navigationDest: MenuViewsState
     var imageName: String = ""
     var title: String = ""
     var link: String = ""
@@ -33,8 +33,8 @@ struct MenuItem: View {
             }.onTapGesture {
                 withAnimation(.easeIn(duration: 0.3)) {
                     // hide create thought view if active
-                    if(showCreateThought) {
-                        showCreateThought = false
+                    if(detailNavigation == .create) {
+                        detailNavigation = .list
                     }
                     // navigate to new page
                     navigation = navigationDest

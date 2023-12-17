@@ -11,7 +11,7 @@ import Algorithms
 struct ThoughtsListView: View {
     // initialization for fetching data
     @StateObject var thoughtsListViewModel = ThoughtsListViewModel()
-    @Binding var showDetailThought: Bool
+    @Binding var detailNavigation: DetailViewsState
     @Binding var detailThought: Thought?
     
     var body: some View {
@@ -22,7 +22,7 @@ struct ThoughtsListView: View {
                     
                         if let thoughtListData = thoughtsListViewModel.thoughtsList {
                             ForEach(thoughtListData) { thought in
-                                ThoughtView(showDetailThought: $showDetailThought, detailThought: $detailThought, thought: thought)
+                                ThoughtView(detailNavigation: $detailNavigation, detailThought: $detailThought, thought: thought)
                             }
                         } else {
                             ProgressView()

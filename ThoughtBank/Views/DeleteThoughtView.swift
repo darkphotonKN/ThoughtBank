@@ -20,7 +20,9 @@ struct DeleteThoughtView: View {
         
         let mobileIP = "172.20.10.4"
         let officeIP = "10.1.6.21"
-        let url = "http://\(mobileIP):3000/api/thoughts/delete?id=\(thoughtId)"
+        let homeWifiIP = "10.0.0.110"
+        
+        let url = "http://\(homeWifiIP):3000/api/thoughts/delete?id=\(thoughtId)"
         
         
         NetworkManager.shared.deleteRequest(url: url)  { response in

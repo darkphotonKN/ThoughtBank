@@ -14,10 +14,9 @@ struct User {
 
 struct HomeView: View {
     @State private var thoughts: [Thought] = [Thought]()
-    @State private var showCreateThought: Bool = false
-    @State private var showDetailThought: Bool = false
     @State private var detailThought: Thought?
-    @State private var navigation: MenuViews = MenuViews.home
+    @State private var navigation: MenuViewsState = MenuViewsState.home
+    @State private var detailNavigation: DetailViewsState = DetailViewsState.list
     
     // user
     let testUser = User(name: "Kranti", email: "darkphoton20@gmail.com")
@@ -27,7 +26,7 @@ struct HomeView: View {
         VStack {
             VStack {
                 // MARK: *** Main Title Area
-                MainTitleView(showCreateThought: $showCreateThought, navigation: $navigation)
+                MainTitleView(detailNavigation: $detailNavigation, navigation: $navigation)
                 
                 // Inner Content Wrapper
                 VStack {
@@ -35,35 +34,35 @@ struct HomeView: View {
                     // MARK: *** Main Content Area
                     
                     // MARK: Screen - HOME
-                    if(navigation == MenuViews.home) {
+                    if(navigation == MenuViewsState.home) {
                         HomeIntroView(info: "Welcome back to your thoughts, \(testUser.name).")
                     }
                     
                     // MARK: Screen - MY THOUGHTS
-                    if(navigation == MenuViews.thoughts) {
-                        if(showCreateThought) {
+                    if(navigation == MenuViewsState.thoughts) {
+                        if(detailNavigation == .create) {
                             // Create Thought Form
-                            CreateThoughtFormView(showCreateThought: $showCreateThought)
-                        } else if(showDetailThought){
+                            CreateThoughtFormView(detailNavigation: $detailNavigation)
+                        } else if(detailNavigation == .detail){
                             
                             // Detail Thought
-                            DetailThoughtView(showDetailThought: $showDetailThought, thought: detailThought)
+                            DetailThoughtView(detailNavigation: $detailNavigation, thought: detailThought)
                             
-                        } else {
+                        } else if(detailNavigation == .list) {
                             // Thoughts List
-                            ThoughtsListView(showDetailThought: $showDetailThought, detailThought: $detailThought)
+                            ThoughtsListView(detailNavigation: $detailNavigation, detailThought: $detailThought)
                         }
                     }
                     
                     // MARK: Screen - ACCOUNT
-                    if(navigation == MenuViews.profile) {
+                    if(navigation == MenuViewsState.profile) {
                         AccountView()
                     }
                     
                     
                     Spacer()
                     // MARK: *** Navigation Menu
-                    MenuView(navigation: $navigation, showCreateThought: $showCreateThought)
+                    MenuView(navigation: $navigation, detailNavigation: $detailNavigation)
                 }.padding(.top, 10)
             }.padding(20)
            

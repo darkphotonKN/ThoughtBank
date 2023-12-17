@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ThoughtView: View {
-    @Binding var showDetailThought: Bool
+    @Binding var detailNavigation: DetailViewsState
     @Binding var detailThought: Thought?
     var thought: Thought
     
@@ -25,7 +25,7 @@ struct ThoughtView: View {
             }
                 .padding([.top, .bottom], 10)
                 .onTapGesture {
-                    showDetailThought = true
+                    detailNavigation = .detail
                     withAnimation(.easeIn(duration: 0.3)) {
                         detailThought = thought                        
                     }
@@ -38,6 +38,6 @@ struct ThoughtView: View {
 }
 
 #Preview {
-    ThoughtView(showDetailThought: .constant(false), detailThought: .constant(Thought(id: "e39d0c85-46c7-46bf-9950-05710b84e8c8", title: "test", content: "This is some thought body.")), thought: Thought(id: "e39d0c85-46c7-46bf-9950-05710b84e8c8", title: "test", content: "This is some thought body."))
+    ThoughtView(detailNavigation: .constant(.detail), detailThought: .constant(Thought(id: "e39d0c85-46c7-46bf-9950-05710b84e8c8", title: "test", content: "This is some thought body.")), thought: Thought(id: "e39d0c85-46c7-46bf-9950-05710b84e8c8", title: "test", content: "This is some thought body."))
 }
 
