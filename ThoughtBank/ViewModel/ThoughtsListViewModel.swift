@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ThoughtDataApiRepsonse: Codable {
+struct ThoughtDataApiResponse: Codable {
     var data: [Thought]
 }
 
@@ -21,38 +21,22 @@ final class ThoughtsListViewModel: ObservableObject {
     }
     
     func fetchThoughts() {
-        let mobileIP = "172.20.10.4"
-        let homeWifiIP = "10.0.0.110"
-        let officeIP = "10.1.6.21"
-        guard let urlObject = URL(string: "http://\(homeWifiIP):3000/api/thoughts")
-            else {
-                print("urlObject creation failed!")
-                return
-            }
+        let urlEndpoint = "/api/thoughts"
         
-        print("urlObject: \(urlObject)")
-        URLSession.shared.dataTask(with: urlObject) { data, response, error in
-            if let error = error {
-                        print("Error fetching thoughts: \(error)")
-                        return
-                    }
-            
-            guard let data = data else { return }
-            
-            
-            // Attempt to decode the data
+        NetworkManager.shared.getRequest(url: urlEndpoint) { (result: Result<ThoughtDataApiResponse, Error>) in
+            // perform async update of state
             DispatchQueue.main.async {
-                do {
-                    // convert data to JSON object
-                    let decodedData = try JSONDecoder().decode(ThoughtDataApiRepsonse.self, from: data)
-                    self.thoughtsList = decodedData.data
-                } catch {
-                    print("Error decoding thoughts: \(error)")
+                switch result {
+                case .success(let apiResponse):
+                    print("DEBUG success response: \(apiResponse)")
+                    self.thoughtsList = apiResponse.data
+                case .failure(let error):
+                    print("DEBUG error after GET request: \(error)")
+                    
                 }
             }
-               
-            
-        }.resume()
+        }
+        
         
     }
     

@@ -11,12 +11,45 @@ class NetworkManager {
     // instantiate singleton instance
     static var shared = NetworkManager()
     
+    // MARK: - GET REQUEST HELPER
+    func getRequest<T: Decodable>(url: String, completion: @escaping(Result<T, Error>) -> Void) {
+        // convert url endpoint to URL object
+        guard let urlObject = URL(string: "http://\(apiDomain):3000\(url)") else { return }
+        
+        // start data task for GET request with URL object
+        let task = URLSession.shared.dataTask(with: urlObject) { data, response, error in
+            if let error = error {
+                print("DEBUG: Error occured during GET request.")
+                completion(.failure(error))
+                return
+            }
+            // check for valid data
+            guard let data = data else { return }
+            
+            DispatchQueue.main.async {
+                do {
+                    // attempt to decode the data
+                    let data = try JSONDecoder().decode(T.self, from: data)
+                    
+                    // return data after asynchronous operation
+                    completion(.success(data))
+                } catch {
+                    print("DEBUG: Error occued while decoding JSON data.")
+                }
+            }
+        }
+        
+        // initiate async request
+        task.resume()
+        
+    }
     
+ 
     // MARK: - POST REQUEST HELPER
     func postRequest<T: Encodable>(url: String, payload: T, completion: @escaping (Result<Data, Error>) -> Void) {
         
         // guard against any unaccepted url strings and create URL object
-        guard let url = URL(string: url) else { return }
+        guard let url = URL(string: "http://\(apiDomain):3000\(url)") else { return }
         
         // create a URLRequest object
         var request = URLRequest(url: url)
@@ -59,7 +92,7 @@ class NetworkManager {
         print("Delete request with: \(url)")
         
         // guard against any unaccepted url strings and create URL object
-        guard let url = URL(string: url) else { return }
+        guard let url = URL(string: "http://\(apiDomain):3000\(url)") else { return }
         
         // create a URLRequest object
         var request = URLRequest(url: url)

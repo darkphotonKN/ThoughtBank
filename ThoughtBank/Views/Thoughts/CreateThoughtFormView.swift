@@ -77,24 +77,26 @@ struct CreateThoughtFormView: View {
     
     func createThought() {
         let newThought = Thought(title: thoughtTitle, content: thoughtBody)
-        let mobileIP = "172.20.10.4"
-        let homeWifiIP = "10.0.0.110"
-        let officeIP = "10.1.6.21"
-        let url = "http://\(homeWifiIP):3000/api/thoughts/create"
+       
+
+        let urlEndpoint = "/api/thoughts/create"
         
         // post to backend
-        NetworkManager.shared.postRequest(url: url, payload: newThought) { result in
-            // stop if no result was recieved
-            switch result {
-            case .success(let data):
-                // decode JSON with string
-                if let encodedStr = String(data: data, encoding: .utf8) {
-                    print("post repsonse data: \(encodedStr)")
-                }
-                
-            case .failure(let error):
-                print("Error while posting: \(error)")
+        NetworkManager.shared.postRequest(url: urlEndpoint, payload: newThought) { result in
+            // perform async operation
+            DispatchQueue.main.async {
+                // stop if no result was recieved
+                switch result {
+                case .success(let data):
+                    // decode JSON with string
+                    if let encodedStr = String(data: data, encoding: .utf8) {
+                        print("post repsonse data: \(encodedStr)")
+                    }
                     
+                case .failure(let error):
+                    print("Error while posting: \(error)")
+                    
+                }
             }
             
         }

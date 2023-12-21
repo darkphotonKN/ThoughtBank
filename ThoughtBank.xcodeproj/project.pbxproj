@@ -26,6 +26,7 @@
 		8FF6175E2B28C67B00B349E6 /* HomeIntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF6175D2B28C67A00B349E6 /* HomeIntroView.swift */; };
 		8FF617602B28C7DA00B349E6 /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF6175F2B28C7DA00B349E6 /* AccountView.swift */; };
 		8FF617812B2DD24400B349E6 /* DetailThoughtView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF617802B2DD24400B349E6 /* DetailThoughtView.swift */; };
+		8FF617862B34A3DA00B349E6 /* config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF617852B34A3DA00B349E6 /* config.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		8FF6175D2B28C67A00B349E6 /* HomeIntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeIntroView.swift; sourceTree = "<group>"; };
 		8FF6175F2B28C7DA00B349E6 /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
 		8FF617802B2DD24400B349E6 /* DetailThoughtView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailThoughtView.swift; sourceTree = "<group>"; };
+		8FF617852B34A3DA00B349E6 /* config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = config.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 				8FB6DBDE2B126E6A007C3943 /* ThoughtBankApp.swift */,
 				8FB6DBE22B126E6B007C3943 /* Assets.xcassets */,
 				8FB6DBE42B126E6B007C3943 /* Preview Content */,
+				8FF617852B34A3DA00B349E6 /* config.swift */,
 			);
 			path = ThoughtBank;
 			sourceTree = "<group>";
@@ -128,16 +131,12 @@
 		8FE8752A2B165BCF00FBF31E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				8FF617842B2EF31700B349E6 /* Thoughts */,
 				8FE8755D2B1DA89F00FBF31E /* Menu */,
 				8FB6DBEC2B12878F007C3943 /* MainTitleView.swift */,
-				8FB6DBF22B128BE9007C3943 /* ThoughtView.swift */,
 				8FF6175D2B28C67A00B349E6 /* HomeIntroView.swift */,
 				8FF6175F2B28C7DA00B349E6 /* AccountView.swift */,
-				8FB6DBEE2B128812007C3943 /* ThoughtsListView.swift */,
 				8FB6DBE02B126E6A007C3943 /* HomeView.swift */,
-				8FE875312B19CEE400FBF31E /* CreateThoughtFormView.swift */,
-				8FF6175B2B25ECEC00B349E6 /* DeleteThoughtView.swift */,
-				8FF617802B2DD24400B349E6 /* DetailThoughtView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -157,6 +156,18 @@
 				8FF617592B222C4800B349E6 /* enum.swift */,
 			);
 			path = types;
+			sourceTree = "<group>";
+		};
+		8FF617842B2EF31700B349E6 /* Thoughts */ = {
+			isa = PBXGroup;
+			children = (
+				8FB6DBF22B128BE9007C3943 /* ThoughtView.swift */,
+				8FB6DBEE2B128812007C3943 /* ThoughtsListView.swift */,
+				8FE875312B19CEE400FBF31E /* CreateThoughtFormView.swift */,
+				8FF6175B2B25ECEC00B349E6 /* DeleteThoughtView.swift */,
+				8FF617802B2DD24400B349E6 /* DetailThoughtView.swift */,
+			);
+			path = Thoughts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -237,6 +248,7 @@
 			files = (
 				8FE8752C2B165C5300FBF31E /* ThoughtsListViewModel.swift in Sources */,
 				8FB6DBED2B12878F007C3943 /* MainTitleView.swift in Sources */,
+				8FF617862B34A3DA00B349E6 /* config.swift in Sources */,
 				8FF6175C2B25ECEC00B349E6 /* DeleteThoughtView.swift in Sources */,
 				8FF617812B2DD24400B349E6 /* DetailThoughtView.swift in Sources */,
 				8FF6175A2B222C4800B349E6 /* enum.swift in Sources */,

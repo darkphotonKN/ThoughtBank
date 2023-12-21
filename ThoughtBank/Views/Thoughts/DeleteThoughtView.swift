@@ -16,16 +16,10 @@ struct DeleteThoughtView: View {
     var thought: Thought 
     
     func deleteThought(thoughtId: String) {
-        print("Deleting thought with id: \(thoughtId)")
         
-        let mobileIP = "172.20.10.4"
-        let officeIP = "10.1.6.21"
-        let homeWifiIP = "10.0.0.110"
+        let urlEndpoint = "/api/thoughts/delete?id=\(thoughtId)"
         
-        let url = "http://\(homeWifiIP):3000/api/thoughts/delete?id=\(thoughtId)"
-        
-        
-        NetworkManager.shared.deleteRequest(url: url)  { response in
+        NetworkManager.shared.deleteRequest(url: urlEndpoint)  { response in
             print("Item deleted: \(response)")
             
         }

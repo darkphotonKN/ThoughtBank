@@ -11,11 +11,27 @@ import SwiftUI
 struct AccountView: View {
     
     var body: some View {
-        HStack {
-            Text("Welcome back, Kranti.")
-                .font(.system(size: 16, weight: .medium))
+        VStack {
+            
+            Image(systemName: "person.crop.circle")
+                .resizable()
+                .frame(width: 100, height: 100)
                 .foregroundStyle(Color(.systemGray))
-            Spacer()
+            HStack {
+                Spacer()
+                Text("Kranti Nebhwani")
+                    .font(.system(size: 36, weight: .bold))
+                    .foregroundStyle(Color(.systemGray))
+                    .padding(.top, 20)
+                Spacer()
+            }
+            HStack {
+                Spacer()
+                Text("Coder. Engineer.")
+                    .font(.system(size: 26, weight: .semibold))
+                    .foregroundStyle(Color(.systemGray2))
+                Spacer()
+            }
         }
     }
 }

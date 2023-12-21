@@ -15,7 +15,9 @@ struct User {
 struct HomeView: View {
     @State private var thoughts: [Thought] = [Thought]()
     @State private var detailThought: Thought?
+    // menu navigation state control
     @State private var navigation: MenuViewsState = MenuViewsState.home
+    // detail navigation state control
     @State private var detailNavigation: DetailViewsState = DetailViewsState.list
     
     // user
