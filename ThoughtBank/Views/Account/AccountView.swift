@@ -13,10 +13,11 @@ struct AccountView: View {
     var body: some View {
         VStack {
             
-            Image(systemName: "person.crop.circle")
-                .resizable()
-                .frame(width: 100, height: 100)
-                .foregroundStyle(Color(.systemGray))
+            
+            // Account Profile Image
+            AccountImageView()
+            
+            // Account Information 
             HStack {
                 Spacer()
                 Text("Kranti Nebhwani")
